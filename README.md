@@ -5,6 +5,7 @@ It will be using an API from GoogleSheets to maintain its database.
 
 
 ## Technologies
+
 - JavaScript
 - ReactJS
 - Sass

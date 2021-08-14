@@ -1,38 +1,44 @@
 import React from "react";
-import {IoHeart, IoFlask, HiLightningBolt, IoShield, IoSkull} from 'react-icons/all';
+import CharListItem from "./CharListItem";
 
 function CharList() {
-    return(
-        <div classList="created">
-            <li class="char__info">
-                <span class="char__info__name">char1</span>
-       
-                <span class="char__info__stats to-right">
-          
-                    <div class="stat-icon stat-health">
-                        <IoHeart />
-                    <div class="stat-value">100</div>
-                    </div>
 
-                    <div class="stat-icon stat-magic">
-                        <IoFlask/>
-                    <div class="stat-value">100</div>
-                    </div>
+    const sheetdb = require("sheetdb-node");
+    const client = sheetdb({ address: 't38d2ssfp8p6q' });
+
+    var charList = {};
+// https://sheetdb.io/api/v1/t38d2ssfp8p6q
+
+{/*
+    REMOVER COMENTÁRIO ANTES DE USAR..
+
+    client.read()
+    .then(function(info) {
+        console.log(info);
+    }, 
+    function(error){
+        console.log(error);
+    }
+);
+*/
+}
+    
+
+    return(
+        <div className="created">
             
-                    <div class="stat-icon stat-power">
-                        <HiLightningBolt/>
-                    <div class="stat-value">100</div>
-                    </div>
-            
-                    <div class="stat-icon stat-defence">
-                        <IoShield/>
-                    <div class="stat-value">100</div></div>
-            
-                    <div class="stat-icon stat-danger">
-                        <IoSkull />
-                    <div class="stat-value">15%</div></div>
-                </span>
-            </li>
+           
+                
+                <CharListItem
+                    name="get name"
+                    species="???"
+                    health="00"
+                    magic="00"
+                    power="00"
+                    defense="00"
+                    critical="00"
+                />
+       
         </div>
     );
 }

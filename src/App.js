@@ -1,7 +1,6 @@
 import './App.scss';
 import CharList from './components/CharList';
 
-import {IoSkull, GiPotionBall} from 'react-icons';
 
 function App() {
   return (
@@ -13,8 +12,8 @@ function App() {
         </div>
       </header>
       <main>
-        <h1>Seus Personagens</h1>
-        <CharList/>
+          <h1>Seus Personagens</h1>
+          <CharList/>
       </main>
       <footer></footer>
     </div>
