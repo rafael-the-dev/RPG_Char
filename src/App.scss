@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@100;200&display=swap');
+
+
+:root {
+    --bg--dark:#0a0a0a;
+    --bg-light:#e1e1e1;
+    --dark:#343e41;
+    --dark--hover:#47707e;
+    --dark-line:#2c3c41;
+    --light-line:#97a6aa;
+    --font-light:#ddd;
+    --font-dark:rgb(100, 97, 97);
+
+    --orange: #fa9b02;
+    --red:#e00;
+    --green:#4bf834;
+    --yellow:#ffe600;
+    --blue:#7dffe3;
+    --white:#fff;
+    --purple:#b800b8;
+    --purple2:#660266;
+
+    font-size: 11px;
+    font-family: 'roboto';
+    font-weight: 300;
+
+    @media (min-width:1020px) {
+        font-size: 16px;
+    }
+
+}
+
+* {
+    margin:0;
+    padding:0;
+    max-width: 100vw;
+    box-sizing: border-box;
+
+ // box-shadow: 0 0 1px 1px red
+}
+
+html, body {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+body {
+    background: #1a1a1a;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Tourney';
+    color:var(--orange);
+    font-size: 3rem;
+    padding:1.5rem 0;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height:50vh;
+    min-height: 400px;
+    padding:2rem 0;
+    background: url(images/bg-rpg.jpg) no-repeat;
+    background-size: cover;
+    color:var(--l-font);
+
+    
+    h1 {
+       width:80%;
+       font-size: 4rem;
+       padding: 2rem 3.5rem;
+       text-align: left;
+       font-family: 'Tourney';
+       color:var(--orange);
+       background: var(--dark);
+       z-index: 3;
+       position: absolute;
+    }
+
+    .buttonArea {
+        display: flex;
+        justify-content: space-evenly;
+        position: absolute;
+        bottom:0;
+        width:100%;
+        padding:3rem;
+        background: linear-gradient(0deg, #000, #0000);
+    }
+
+}
+
+main {
+    width: 100vw;
+    height: 50vh;
+    background: var(--dark);
+
+    .created{
+        display: flex;
+        flex-direction: column;
+        height: 100% !important;
+        width:100%;
+        height:auto;
+        background: var(--dark--hover);
+        overflow-y: scroll;
+        color:white;
+    }
+
+}
+
+
+
+footer {
+    width: 100vw;
+    height:20vh;
+    background-color: var(--bg--dark);
+}
+
+// Style for Chars List
+
+.char__info {
+    display:flex;
+    
+    width:100%;
+    padding:1.5rem;
+    background-color: var(--dark);
+
+    color:var(--l-font);
+    border-bottom: solid 1px var(--light-line);
+
+    &:hover {
+        background-color: var(--dark--hover);
+    }
+
+    &__name {
+        margin-left:2rem;
+        font-size: 2rem;
+    }
+
+
+    &__stats {
+        display: flex;
+        margin-right:2rem;
+
+        .stat-icon {
+            font-size: 2rem;
+            display: flex;
+            cursor:pointer;
+        }
+
+        .stat-{
+            &health:hover{
+                color:var(--red);
+            }
+            &magic:hover{
+                color:var(--green);
+            }
+            &power:hover{
+                color:var(--yellow);
+            }
+            &defence:hover{
+                color:var(--blue);
+            }
+            &danger:hover{
+                color:var(--white);
+            }
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            width:3.5rem;
+            padding-left:.2rem;
+        }
+    }
+}
+
+// Style for char CARD
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin:1rem;
+    width:350px;
+    aspect-ratio: 1/1.5;
+    border-radius: 20px;
+    background-color: var(--dark);
+    color: var(--l-font);
+
+    .container--small {
+        padding: 2rem 2rem 0 2rem;
+        margin:0 auto;
+        columns:2;
+
+    }
+
+    &__top {
+        height:calc(100% / 3);
+    }
+
+    &__middle {
+        height:calc(100% / 3);
+    }
+
+    &__bottom {
+        height:calc(100% / 3);
+    }
+
+}
+
+// Generic Styles
+
+.to-right {
+    margin-left:auto;
+}
+
+.button {
+    border:none;
+    border-radius: 6px;
+    padding:1em;
+    width:10rem;
+    font-family: 'roboto';
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor:pointer;
+}
+
+.button--filled {
+    background: var(--red);
+    color:white;
+}
+
+.button--outline {
+    background: #0003;
+    box-shadow:inset 0 0 0 4px var(--white);
+    color:var(--white);
+}

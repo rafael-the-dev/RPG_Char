@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import CharList from './components/CharList';
+
+import {IoSkull, GiPotionBall} from 'react-icons';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Crie e gerencie seus personages de RPG</h1>
+        <div className="buttonArea">
+          <button className="button">Criar</button> <button className="button button--outline">Ver Código</button>
+        </div>
       </header>
+      <main>
+        <h1>Seus Personagens</h1>
+        <CharList/>
+      </main>
+      <footer></footer>
     </div>
   );
 }
