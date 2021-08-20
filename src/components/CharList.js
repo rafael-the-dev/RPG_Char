@@ -1,38 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import sheetdb from 'sheetdb-node';
 import CharListItem from "./CharListItem";
-
-var charList = [];
 
 function CharList() {
 
-    const sheetdb = require("sheetdb-node");
     const client = sheetdb({ address: 't38d2ssfp8p6q' });
+    var [ charList, setCharList ] = useState([]);
 
     
 
 //  https://sheetdb.io/api/v1/t38d2ssfp8p6q
+//*REMOVER COMENTÁRIO ANTES DE USAR..*/
 
-
-    {/*REMOVER COMENTÁRIO ANTES DE USAR..*/}
-
-    client.read().then(async function(info) {
-        charList = await info;
-        console.log(charList);
-    },      function(error){
-            console.log(error);
-    });
+    useEffect(() => {
+        client
+            .read()
+            .then(info =>  {
+                setCharList(c => JSON.parse(info));
+            }).catch(console.log);
+    }, [ client ]);  
 
     return(
         <div className="created">
-            <CharListItem
-                name={charList[1].name}
-                species={charList[1].species}
-                health={charList[1].health}
-                magic={charList[1].magic}
-                power={charList[1].power}
-                defense={charList[1].defense}
-                critical={charList[1].critical}
-            />
+            {
+                charList.slice(0, 1).map((item, index) => ( 
+                    <CharListItem
+                        key={index}
+                        name={item.name}
+                        species={item.species}
+                        health={item.health}
+                        magic={item.magic}
+                        power={item.power}
+                        defense={item.defense}
+                        critical={item.critical}
+                    />
+                ))
+            }
         </div>
     );
 }
